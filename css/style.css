@@ -1,0 +1,85 @@
+*::before, *::after, * {
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+    border: none;  
+}
+
+body {
+    background-color: whitesmoke; 
+    color: #33312F;     
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center; 
+    font-family: 'Song Myung', serif;
+}
+
+.header {
+    background-color: #94a395; 
+}
+
+.logo {
+    width: 300px; 
+    margin: auto; 
+    display: flex;  
+}
+
+.nav_bar {
+    padding: 40px; 
+}
+
+a {
+    padding: 40px; 
+    text-decoration: none; 
+    color: #C19C60; 
+}
+
+
+h1 {
+    font-family: 'Raleway', sans-serif;
+    color:#0E1118;
+    display: flex; 
+    justify-content: center; 
+    font-size: 100px; 
+}
+
+button {
+    padding: 10px; 
+    background-color: #33312f; 
+    color: white; 
+    border-radius: 20px; 
+    font-size: 16px; 
+    margin-top: 10px; 
+    outline: none; 
+
+}
+
+button:hover {
+    background-color: #C19C60; 
+    color:black;
+}
+
+
+.movie_card {
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+}
+
+.movie_img {
+    width: 250px;
+}
+
+.search {
+    padding: 15px;   
+    border: 1px solid black;
+    border-radius: 25px;
+}
+
+#movie_box {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}

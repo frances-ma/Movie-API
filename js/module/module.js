@@ -5,10 +5,14 @@ angular.module("Hotflix", ["ngRoute"])
     .config(function($routeProvider) {
         $routeProvider
             .when("/movie-list", {
-                template: `<movie-list></movie-list>`
+                template: `
+                <poster></poster>
+                <movie-list></movie-list>`
             })
             .when("/movie-watchlist", {
-                template: `<movie-watchlist></movie-watchlist>`
+                template: `
+                <poster></poster>
+                <movie-watchlist></movie-watchlist>`
             })
-            .otherwise({ redirectTo: "/movie-list"})
+            .otherwise({ redirectTo: "/movie-list"});
 })
