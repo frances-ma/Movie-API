@@ -8,13 +8,14 @@ const popUp = {
         <h3 class="card_header_three">Release Date: {{movie.release_date}}</h3>
         <p class="card_text">{{movie.overview}}</p>
         <button class="add_button" ng-click="$ctrl.addMovie(movie);"> Add Movie </button>
+        <i class="material-icons close">clear</i>
     </div>
     `, 
 
     controller: ["MovieService", function(MovieService) {
        const vm = this; 
        vm.modal_info = MovieService.returnMovieList();
-       console.log(vm.modal_info);
+    //    console.log(vm.modal_info);
     }] 
 }
 

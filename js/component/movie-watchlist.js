@@ -33,7 +33,6 @@ const movieWatchlist = {
         
         vm.watchlist = MovieService.getWatchlist();
         console.log(vm.watchlist);
-
     }]
 };
 

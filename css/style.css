@@ -126,7 +126,6 @@ button:hover {
     width: 100%;
 }
 
-
 .dropbtn {
     background-color: #3498DB;
     color: white;
@@ -164,7 +163,6 @@ button:hover {
 
 .dropdown a:hover {background-color: #ddd}
 
-
 .show {display:block;}
 
 .movie_modal {
@@ -172,4 +170,16 @@ button:hover {
     width: 500px; 
     display:none;
     position:fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+}
+
+.close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: teal;
+    border-radius: 25px;
 }

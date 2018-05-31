@@ -5,6 +5,9 @@ function MovieService($http) {
     let newWatchlist = {};
     let newGenre = ""; 
     let genreObject = {};
+    let searchedMovie = {};
+    let movieRatings = {};
+    let movieTitles = {};
 
     // 20 most popular movies 
     const getMovieList = () => {
@@ -24,7 +27,7 @@ function MovieService($http) {
             url: `https://api.themoviedb.org/3/discover/movie?api_key=f4ae3b639c7d6bc44c596640018ce8b3&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=${genre}`
         }).then((response) => {
             newGenre = genre; 
-            for ( let i = 0; i < genreList.length; i++) {
+            for (let i = 0; i < genreList.length; i++) {
                 if (newGenre === genreList.name) {
                 console.log("cool"); 
                 }
@@ -62,17 +65,54 @@ function MovieService($http) {
             url: "https://api.themoviedb.org/3/genre/movie/list?api_key=f4ae3b639c7d6bc44c596640018ce8b3&language=en-US"
         }).then((response) => {
             genreObject = response;
+            return genreObject;
             console.log(genreObject);
         })
     }
 
+    const sendSearchRating = (rating) => {
+        return $http({
+            method: "GET",
+            url: "https://api.themoviedb.org/3/discover/movie?api_key=f4ae3b639c7d6bc44c596640018ce8b3&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&vote_average.gte=" + rating
+        }).then((response) => {
+            movieRatings = response;
+            console.log(movieRatings);
+        })
+    }
+    
+    const getSearchResults = () => {
+        console.log(movieRatings);
+        return movieRatings;
+    }
+
+    const getMovieTitles = (title) => {
+        return $http({
+            method: "GET",
+            url: `https://api.themoviedb.org/3/discover/movie?api_key=f4ae3b639c7d6bc44c596640018ce8b3&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&query=${title}`
+        }).then((response) => {
+            movieTitles = response;
+            console.log(movieTitles);
+        })
+    }
+
+    const getTitleResults = () => {
+        console.log(movieTitles);
+        return movieTitles;
+    }
+
+    //Send dropdown info
+    
     return {
         genreList,
         getMovieList,
         getGenreList,
         returnMovieList,
         sendWatchlist,
-        getWatchlist
+        getWatchlist,
+        sendSearchRating,
+        getSearchResults,
+        getMovieTitles, 
+        getTitleResults
     }
 }
 

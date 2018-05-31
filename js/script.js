@@ -1,5 +1,11 @@
 "use strict";
 
+  // let closeBtn = document.querySelector(".close");
+  // let modal = document.querySelector(".movie_modal");
+
+  // closeBtn.addEventListener("click", function() {
+  //   modal.style.display = "none";
+  // })
 // Makes nav bar fixed when it hits the top
 window.addEventListener("scroll", function() {
   let nav = document.querySelector(".nav_bar");
@@ -29,13 +35,16 @@ function myFunction() {
 window.onclick = function(event) {
 if (!event.target.matches('.dropbtn')) {
 
-  var dropdowns = document.getElementsByClassName("dropdown-content");
-  var i;
-  for (i = 0; i < dropdowns.length; i++) {
-    var openDropdown = dropdowns[i];
+  let dropdowns = document.getElementsByClassName("dropdown-content");
+  for (let i = 0; i < dropdowns.length; i++) {
+    let openDropdown = dropdowns[i];
     if (openDropdown.classList.contains('show')) {
+      
     }
   }
 }
 }
+
+
+
 

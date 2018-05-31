@@ -13,5 +13,15 @@ angular.module("Hotflix", ["ngRoute"])
                 template: `
                 <movie-watchlist></movie-watchlist>`
             })
+            .when("/search-results", {
+                template: `
+                <search-results></search-results>
+                `
+            })
+            .when("/search-title", {
+                template: `
+                <search-title></search-title>
+                `
+            })
             .otherwise({ redirectTo: "/movie-list"});
 })
