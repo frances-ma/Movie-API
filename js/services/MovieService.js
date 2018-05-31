@@ -91,7 +91,6 @@ function MovieService($http) {
             url: `https://api.themoviedb.org/3/discover/movie?api_key=f4ae3b639c7d6bc44c596640018ce8b3&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&query=${title}`
         }).then((response) => {
             movieTitles = response;
-            console.log(movieTitles);
         })
     }
 
@@ -99,6 +98,24 @@ function MovieService($http) {
         console.log(movieTitles);
         return movieTitles;
     }
+
+
+    // const searchByGenre = (genre) => {
+    //     return $http({
+    //         method: "GET",
+    //         url: `https://api.themoviedb.org/3/genre/movie/list?api_key=f4ae3b639c7d6bc44c596640018ce8b3&language=en-US`
+    //     }).then((response) => {
+    // const searchByGenre2 = (genre) => {
+    //     return $http({
+    //         method: "GET",
+    //         url: `https://api.themoviedb.org/3/discover/movie?api_key=f4ae3b639c7d6bc44c596640018ce8b3&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1`
+    //     }).then((response) => {
+    //         for (let i = 0; i < genre.length; i++) {
+    //         }
+    // })
+
+    
+
 
     //Send dropdown info
     
@@ -112,9 +129,9 @@ function MovieService($http) {
         sendSearchRating,
         getSearchResults,
         getMovieTitles, 
-        getTitleResults
+        getTitleResults, 
+        searchByGenre
     }
 }
-
-
+        
 angular.module("Hotflix").factory("MovieService", MovieService);    

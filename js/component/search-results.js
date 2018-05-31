@@ -45,7 +45,6 @@ const searchResults = {
     controller: ["MovieService", function(MovieService) {
         const vm = this;
         vm.watchList = [];
-        console.log("hi");
         vm.movieTitles = MovieService.getSearchResults();
         console.log(vm.movieTitles);
 

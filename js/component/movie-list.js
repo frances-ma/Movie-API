@@ -67,7 +67,6 @@ const movieList = {
             MovieService.sendSearchRating(rating).then(() => {
                 $location.path("/search-results");
             });
-            console.log(rating);
          }
 
          vm.searchTitles = (title) => {

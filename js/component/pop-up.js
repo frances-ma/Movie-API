@@ -15,7 +15,7 @@ const popUp = {
     controller: ["MovieService", function(MovieService) {
        const vm = this; 
        vm.modal_info = MovieService.returnMovieList();
-    //    console.log(vm.modal_info);
+
     }] 
 }
 
