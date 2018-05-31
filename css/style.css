@@ -12,11 +12,13 @@ body {
     flex-direction: column; 
     align-items: center;
     justify-content: center; 
-    font-family: 'Song Myung', serif;
+    font-family: 'Song Hyung', sans-serif;
+    width: 100vw;
 }
 
 .header {
-    background-color: #94a395; 
+    background-color: #94a395;  
+    width: 100vw;
 }
 
 .logo {
@@ -27,14 +29,20 @@ body {
 
 .nav_bar {
     padding: 40px; 
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: lightblue;
+    margin-bottom: 25px;
 }
 
 a {
-    padding: 40px; 
+    padding: 12px; 
     text-decoration: none; 
-    color: #C19C60; 
+    color: #33312f;
+    background-color: #fff;
+    border-radius: 5px;
 }
-
 
 h1 {
     font-family: 'Raleway', sans-serif;
@@ -42,6 +50,7 @@ h1 {
     display: flex; 
     justify-content: center; 
     font-size: 100px; 
+    padding-bottom: 3rem;
 }
 
 button {
@@ -50,7 +59,7 @@ button {
     color: white; 
     border-radius: 20px; 
     font-size: 16px; 
-    margin-top: 10px; 
+    margin-top: 20px; 
     outline: none; 
 
 }
@@ -60,26 +69,66 @@ button:hover {
     color:black;
 }
 
-
 .movie_card {
-    width: 250px;
+    width: 300px;
     display: flex;
     flex-direction: column;
     margin: 1rem;
 }
 
 .movie_img {
-    width: 250px;
+    width: 300px;
 }
 
 .search {
-    padding: 15px;   
+    padding: 12px;   
     border: 1px solid black;
-    border-radius: 25px;
+    border-radius: 5px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
 }
 
 #movie_box {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-wrap: wrap;
+}
+
+.left_nav {
+
+}
+
+.right_nav {
+    width: 250px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.nav_button {
+    border-radius: 0;
+    margin: 0;
+    padding: 12px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    margin-left: -5px;
+}
+
+.card_header {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.card_header_three {
+    padding: 10px;
+    text-align: center;
+}
+
+.card_text {
+}
+
+.fixed_nav {
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    width: 100%;
 }

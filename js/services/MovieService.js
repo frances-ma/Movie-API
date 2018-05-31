@@ -2,7 +2,7 @@
 
 function MovieService($http) {
     let movieData = {};
-
+    let newWatchlist = [];
     const getMovieList = () => {
         return $http({
             method: "GET",
@@ -30,6 +30,11 @@ function MovieService($http) {
     }
     const returnMovieList = () => {
         return movieData;
+    }
+
+    const sendWatchlist = (watchlist) => {
+        newWatchlist = watchlist;
+        console.log(newWatchlist);
     }
 
     return {
