@@ -6,12 +6,11 @@ angular.module("Hotflix", ["ngRoute"])
         $routeProvider
             .when("/movie-list", {
                 template: `
-                <poster></poster>
+                <pop-up></pop-up> 
                 <movie-list></movie-list>`
             })
             .when("/movie-watchlist", {
                 template: `
-                <poster></poster>
                 <movie-watchlist></movie-watchlist>`
             })
             .otherwise({ redirectTo: "/movie-list"});

@@ -8,8 +8,23 @@ const movieList = {
     </header>
     <nav class="nav_bar">
         <div class="left_nav">
-            <input class="search"type="text" placeholder="Search By..." ng-model="$ctrl.info.data.results.title">
-            <button class="nav_button" type="button">Search</button>
+            <div class="dropdown">
+                <button onclick="myFunction()" class="dropbtn">Search</button>
+                    <div id="myDropdown" class="dropdown-content">
+                    <div class="movie_input">
+                        <input ng-model="$ctrl.movieGenre;" type="text" placeholder="Genre">
+                        <button ng-click="$ctrl.searchGenre($ctrl.movieGenre);" class="search_button" type="button" >Genre</button>
+                    </div>
+                    <div class="movie_input">
+                        <input ng-model="$ctrl.movieDirector;" type="text" placeholder="Director">
+                        <button class="search_button" type="button" >Director</button>
+                    </div>
+                    <div class="movie_input">
+                        <input ng-model="$ctrl.movieRating;" type="text" placeholder="Rating">
+                        <button class="search_button" type="button" >Rating</button>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="right_nav">
             <a href="#!/movie-list">Home</a>
@@ -23,6 +38,7 @@ const movieList = {
             <h3 class="card_header_three">Release Date: {{movie.release_date}}</h3>
             <p class="card_text">{{movie.overview}}</p>
             <button class="add_button" ng-click="$ctrl.addMovie(movie);"> Add Movie </button>
+            <button class="add_button" ng-click="$ctrl.editMovie(movie);"> More Info </button>
         </section>
     </div>
     
@@ -31,7 +47,7 @@ const movieList = {
         const vm = this;
         vm.watchList = [];
         MovieService.getMovieList().then((response) => {
-            vm.info = response;
+            vm.info = response; 
         })
         vm.addMovie = (movie) => {
             vm.watchList.push(movie);
@@ -39,9 +55,25 @@ const movieList = {
         vm.submit = () => {
             MovieService.sendWatchlist(vm.watchList);
         }
-    }]
 
+        vm.searchGenre = (genre) => {
+            MovieService.genreList(genre); 
+            console.log(genre); 
+
+
+        }
+         vm.editMovie = (movie) => {
+             let modal = document.querySelector(".movie_modal");
+             modal.style.display = "block";
+         }
+    }]
+     
 }
 
 
 angular.module("Hotflix").component("movieList", movieList);
+
+
+/* <button class="nav_button" type="button">Search</button> 
+   <input class="search"type="text" placeholder="Search By..." ng-model="$ctrl.info.data.results.title">
+*/
