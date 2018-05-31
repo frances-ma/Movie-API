@@ -2,14 +2,14 @@
 
 function MovieService($http) {
     let movieData = {};
-    let newWatchlist = [];
+    let newWatchlist = {};
+
     const getMovieList = () => {
         return $http({
             method: "GET",
             url: "https://api.themoviedb.org/3/discover/movie?page=1&include_video=false&sort_by=popularity.desc&language=en-US&api_key=f4ae3b639c7d6bc44c596640018ce8b3"
         }).then((response) => {
             movieData = response;
-            console.log(movieData);
             return movieData;
         }) 
     }
@@ -28,6 +28,7 @@ function MovieService($http) {
             return response;
         }) 
     }
+
     const returnMovieList = () => {
         return movieData;
     }
@@ -37,9 +38,16 @@ function MovieService($http) {
         console.log(newWatchlist);
     }
 
+    const getWatchlist = () => {
+        return newWatchlist;
+    }
+
     return {
         getMovieList,
-        returnMovieList
+        getGenreList,
+        returnMovieList,
+        sendWatchlist,
+        getWatchlist
     }
 }
 

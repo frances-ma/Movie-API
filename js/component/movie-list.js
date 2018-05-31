@@ -13,7 +13,7 @@ const movieList = {
         </div>
         <div class="right_nav">
             <a href="#!/movie-list">Home</a>
-            <a href="#!/movie-watchlist">Watchlist</a>
+            <a href="#!/movie-watchlist" ng-click="$ctrl.submit();">Watchlist</a>
         </div>
     </nav>
     <div id="movie_box">
@@ -35,7 +35,9 @@ const movieList = {
         })
         vm.addMovie = (movie) => {
             vm.watchList.push(movie);
-            console.log(vm.watchList);
+        }
+        vm.submit = () => {
+            MovieService.sendWatchlist(vm.watchList);
         }
     }]
 

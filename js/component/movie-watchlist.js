@@ -17,27 +17,25 @@ const movieWatchlist = {
         </div>
     </nav>
     <div id="movie_box">
-        <section class="movie_card" ng-repeat="movie in $ctrl.info.data.results | filter:$ctrl.info.data.results.title">
-            <h2>{{movie.title}}</h2>
+        <section class="movie_card" ng-repeat="movie in $ctrl.watchlist">
+            <h2 class="card_header">{{movie.title}}</h2>
             <img class="movie_img" ng-src="https://image.tmdb.org/t/p/w500/{{movie.backdrop_path}}">
-            <h3>Release Year: {{movie.release_date}}</h3>
-            <p>{{movie.overview}}</p>
-            <button class="add_button" ng-click="$ctrl.addMovie(movie);"> Add Movie </button>
+            <h3 class="card_header_three">Release Date: {{movie.release_date}}</h3>
+            <p class="card_text">{{movie.overview}}</p>
         </section>
     </div>
     `,
-    controller: function() {
+    controller: ["MovieService", function(MovieService) {
         const vm = this;
-        vm.watchList = [];
         MovieService.getMovieList().then((response) => {
             vm.info = response;
         })
-        vm.addMovie = (movie) => {
-            vm.watchList.push(movie);
-            console.log(vm.watchList);
-        }
-    }
-}
+        
+        vm.watchlist = MovieService.getWatchlist();
+        console.log(vm.watchlist);
+
+    }]
+};
 
 
 angular.module("Hotflix").component("movieWatchlist", movieWatchlist);

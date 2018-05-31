@@ -94,10 +94,6 @@ button:hover {
     flex-wrap: wrap;
 }
 
-.left_nav {
-
-}
-
 .right_nav {
     width: 250px;
     display: flex;
@@ -121,9 +117,6 @@ button:hover {
 .card_header_three {
     padding: 10px;
     text-align: center;
-}
-
-.card_text {
 }
 
 .fixed_nav {
