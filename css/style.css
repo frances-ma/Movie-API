@@ -6,7 +6,7 @@
 }
 
 body {
-    background-color: whitesmoke; 
+    background-color: #f1f1f1;
     color: #33312F;     
     display: flex; 
     flex-direction: column; 
@@ -79,6 +79,7 @@ button:hover {
     margin: 1rem;
     border: 1px solid grey;
     padding: 1rem;
+    box-shadow: 5px 5px 15px -5px black;
 }
 
 .movie_img {
@@ -97,6 +98,7 @@ button:hover {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+    background-color: #f1f1f1;
 }
 
 .right_nav {
