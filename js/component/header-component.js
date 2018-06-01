@@ -36,8 +36,11 @@ const headerComponent = {
         const vm = this;
 
         vm.searchGenre = (genre) => {
-            MovieService.genreList(genre).then(() => {
-                $location.path("/search-genre");
+            MovieService.genreList(genre).then((response) => {
+                MovieService.genreList2(genre).then((response) => {
+                    $location.path("/search-genre");
+                })
+
             });
         }
 

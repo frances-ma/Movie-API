@@ -6,8 +6,6 @@ const movieList = {
         <section class="movie_card" ng-repeat="movie in $ctrl.info.data.results">
             <h2 class="card_header">{{movie.title}}</h2>
             <img class="movie_img" ng-src="https://image.tmdb.org/t/p/w500/{{movie.backdrop_path}}">
-            <h3 class="card_header_three">Release Date: {{movie.release_date}}</h3>
-            <p class="card_text">{{movie.overview}}</p>
             <button id="added" ng-click="$ctrl.addMovie(movie);">Add Movie</button>
             <button ng-click="$ctrl.editMovie(movie);">More Info</button>
         </section>

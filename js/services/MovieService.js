@@ -48,11 +48,13 @@ function MovieService($http) {
             url: "https://api.themoviedb.org/3/genre/movie/list?api_key=f4ae3b639c7d6bc44c596640018ce8b3&language=en-US"
         }).then((response) => {
             genreObject = response;
-            actualGenre = genre;
-            console.log(genreObject);
-            for (let i = 0; i <= genreObject.data.genres; i++) {
-                console.log(genreObject);
+            console.log(genreObject.data.genres );
+            for (let i = 0; i < genreObject.data.genres; i++) {
+                if (genre.toLowerCase() === genreObject.data.genres[i].name.toLowerCase()) {
+                    console.log(genreObject);
+                }    
             }
+            console.log(genreObject);
         })
     }
 
@@ -63,7 +65,6 @@ function MovieService($http) {
         }).then((response) => {
             genreObject = response;
             return genreObject;
-            console.log(genreObject);
         })
     }
 
