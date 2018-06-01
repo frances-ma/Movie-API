@@ -18,7 +18,7 @@ body {
 
 .header {
     background-color: #94a395; 
-    background-image: url(/Users/asiama/Movie-API/img/noom-peerapong-30948-unsplash.jpg);  
+    background-image: url("https://i.imgur.com/KZVhYq7.jpg");  
     width: 100vw;
 }
 
