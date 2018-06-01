@@ -7,7 +7,7 @@ window.addEventListener("scroll", function() {
   let navTop = nav.offsetTop;
 
   if (window.scrollY >= 465) {
-    nav.style.paddingTop = "40px";
+    nav.style.paddingTop = "30px";
     header.style.marginTop = "-24px";
     header.style.marginBottom = "24px";
     document.body.style.paddingTop = "148px";

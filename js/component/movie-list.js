@@ -46,8 +46,6 @@ const movieList = {
         }
 
         vm.editMovie = (movie) => {
-            
-
             vm.theMovie = movie;
             modal.style.display = "flex";
         }

@@ -16,15 +16,28 @@ const searchGenre = {
     controller: ["MovieService", function(MovieService) {
         const vm = this;
         vm.watchList = [];
+        vm.theMovie = {};
+        let modal = document.querySelector(".movie_modal");
+        let closeBtn = document.querySelector(".close");
+        closeBtn.addEventListener("click", function() {
+            modal.style.display = "none";
+        })
         vm.searchGenre = MovieService.getTitleResults();
 
         vm.addMovie = (movie) => {
             vm.watchList.push(movie);
             MovieService.sendWatchlist(vm.watchList);
+            modal.style.display = "none";
+        }
+
+        vm.modalMovie = (movie) => {
+            vm.watchList.push(movie);
+            MovieService.sendWatchlist(vm.watchList);
+            modal.style.display = "none";
         }
 
         vm.editMovie = (movie) => {
-            let modal = document.querySelector(".movie_modal");
+            vm.theMovie = movie;
             modal.style.display = "flex";
         }
     }]

@@ -17,7 +17,6 @@ body {
 }
 
 .header {
-    background-color: #94a395; 
     background-image: url("https://i.imgur.com/ZbI41Mi.jpg"); 
     background-size: cover; 
     width: 100vw;
@@ -31,12 +30,11 @@ body {
 }
 
 .nav_bar {
-    padding: 40px; 
+    padding: 30px; 
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    background-color: lightblue;
-    margin-bottom: 25px;
+    background: linear-gradient(to bottom, #a1a1a1,rgba(118, 126, 149, .75)); 
 }
 
 a {
@@ -65,6 +63,11 @@ button {
     font-size: 16px; 
     margin-top: 20px; 
     outline: none; 
+}
+
+a:hover {
+    background-color: #C19C60;
+    box-shadow: 2px 5px 10px -5px black;
 }
 
 button:hover {
@@ -132,10 +135,11 @@ button:hover {
     top: 0;
     z-index: 1;
     width: 100%;
+    padding: 20px;
 }
 
 .dropbtn {
-    background-color: #3498DB;
+    margin: 0;
     color: white;
     padding: 16px;
     font-size: 16px;
@@ -143,8 +147,8 @@ button:hover {
     cursor: pointer;
 }
 
-.dropbtn:hover, .dropbtn:focus {
-    background-color: #2980B9;
+.dropbtn {
+    box-shadow: 2px 5px 10px -5px black;
 }
 
 .dropdown {
@@ -174,7 +178,7 @@ button:hover {
 .show {display:block;}
 
 .movie_modal {
-    background-color: lightblue; 
+    background-color: #d1d1d1; 
     width: 500px; 
     display:none;
     position:fixed;
@@ -182,7 +186,7 @@ button:hover {
     top: 50%;
     transform: translate(-50%, -50%);
     z-index: 5;
-    box-shadow: 5px 5px 15px -5px black;
+    box-shadow: 2px 5px 15px -5px black;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
@@ -218,13 +222,7 @@ input {
     border: 1px solid black;
 }
 
-.search_button {
-    width: 100%;
-    background-color: #33312f;
-    border-radius: 15px;
-    margin: 0;
-    color: white;
-}
+
 
 .search_button:hover {
     width: 100%;
@@ -232,4 +230,12 @@ input {
     color: black;
     text-decoration: underline;
     cursor: pointer;
+}
+
+.search_button {
+    width: 100%;
+    background-color: #33312f;
+    border-radius: 15px;
+    margin: 0;
+    color: white;
 }
