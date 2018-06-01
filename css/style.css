@@ -119,6 +119,7 @@ button:hover {
     text-align: center;
 }
 
+
 .fixed_nav {
     position: fixed;
     top: 0;
@@ -166,7 +167,7 @@ button:hover {
 .show {display:block;}
 
 .movie_modal {
-    background-color: red; 
+    background-color: lightblue; 
     width: 500px; 
     display:none;
     position:fixed;
@@ -174,6 +175,23 @@ button:hover {
     top: 50%;
     transform: translate(-50%, -50%);
     z-index: 5;
+    box-shadow: 5px 5px 15px -5px black;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 3rem;
+}
+
+.theMovie_img {
+    width: 100%;
+
+}
+.theCard_header_three {
+    padding: 5px;
+    margin: 1rem 0;
+    text-align: center;
+    background-color: #f1f1f1;
+    width: 100%;
 }
 
 .close {
@@ -182,4 +200,27 @@ button:hover {
     right: 0;
     background-color: teal;
     border-radius: 25px;
+}
+
+input {
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+.search_button {
+    width: 100%;
+    background-color: #33312f;
+    border-radius: 15px;
+    margin: 0;
+    color: white;
+}
+
+.search_button:hover {
+    width: 100%;
+    margin: 0;
+    color: black;
+    text-decoration: underline;
+    cursor: pointer;
 }

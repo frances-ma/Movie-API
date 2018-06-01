@@ -1,11 +1,5 @@
 "use strict";
 
-  // let closeBtn = document.querySelector(".close");
-  // let modal = document.querySelector(".movie_modal");
-
-  // closeBtn.addEventListener("click", function() {
-  //   modal.style.display = "none";
-  // })
 // Makes nav bar fixed when it hits the top
 window.addEventListener("scroll", function() {
   let nav = document.querySelector(".nav_bar");

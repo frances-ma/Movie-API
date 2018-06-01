@@ -2,35 +2,6 @@
 
 const searchResults = {
     template: `
-    <header class="header">
-        <img class="logo" src="img/HF-LOGO.png">
-        <h1>Hot Flix</h1>
-    </header>
-    <nav class="nav_bar">
-        <div class="left_nav">
-            <div class="dropdown">
-                <button onclick="myFunction()" class="dropbtn">Search</button>
-                    <div id="myDropdown" class="dropdown-content">
-                    <div class="movie_input">
-                        <input ng-model="$ctrl.movieGenre;" type="text" placeholder="Genre">
-                        <button ng-click="$ctrl.searchGenre($ctrl.movieGenre);" class="search_button" type="button" >Genre</button>
-                    </div>
-                    <div class="movie_input">
-                        <input ng-model="$ctrl.movieTitle;" type="text" placeholder="Title">
-                        <button class="search_button" type="button" >Title</button>
-                    </div>
-                    <div class="movie_input">
-                        <input ng-model="$ctrl.movieRating;" type="text" placeholder="Rating">
-                        <button class="search_button" type="button" ng-click="$ctrl.searchRating($ctrl.movieRating);">Rating</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="right_nav">
-            <a href="#!/movie-list">Home</a>
-            <a href="#!/movie-watchlist" ng-click="$ctrl.submit();">Watchlist</a>
-        </div>
-    </nav>
     <div id="movie_box">
         <section class="movie_card" ng-repeat="movie in $ctrl.movieTitles.data.results">
             <h2 class="card_header">{{movie.title}}</h2>
@@ -47,6 +18,7 @@ const searchResults = {
         vm.watchList = [];
         vm.movieTitles = MovieService.getSearchResults();
         console.log(vm.movieTitles);
+        
 
         vm.addMovie = (movie) => {
             vm.watchList.push(movie);
@@ -55,7 +27,7 @@ const searchResults = {
 
         vm.editMovie = (movie) => {
             let modal = document.querySelector(".movie_modal");
-            modal.style.display = "block";
+            modal.style.display = "flex";
         }
     }]
      
