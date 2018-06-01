@@ -37,11 +37,8 @@ const headerComponent = {
         vm.updateWatchlist = MovieService.getWatchlist();
         console.log(vm.updateWatchlist);
         vm.searchGenre = (genre) => {
-            MovieService.genreList(genre).then((response) => {
-                MovieService.genreList2(genre).then((response) => {
-                    $location.path("/search-genre");
-                })
-
+            MovieService.genreList(genre).then(() => {
+                $location.path("/search-genre");
             });
         }
 

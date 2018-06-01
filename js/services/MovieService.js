@@ -11,6 +11,7 @@ function MovieService($http) {
     let movieTitles = {};
     let modalInfo =  {};
     let actualGenre = "";
+    let url;
 
     // 20 most popular movies 
     const getMovieList = () => {
@@ -43,17 +44,22 @@ function MovieService($http) {
 
     // give genres back 
     const genreList = (genre) => {
+        if (genre.toLowerCase() === "action") {
+            url = "https://api.themoviedb.org/3/discover/movie?api_key=f4ae3b639c7d6bc44c596640018ce8b3&with_genres=28"
+        } else if (genre.toLowerCase() === "drama") {
+            url = "https://api.themoviedb.org/3/discover/movie?api_key=f4ae3b639c7d6bc44c596640018ce8b3&with_genres=18"
+        } else if (genre.toLowerCase() === "adventure") {
+            url = "https://api.themoviedb.org/3/discover/movie?api_key=f4ae3b639c7d6bc44c596640018ce8b3&with_genres=12"
+        } else if (genre.toLowerCase() === "comedy") {
+            url = "https://api.themoviedb.org/3/discover/movie?api_key=f4ae3b639c7d6bc44c596640018ce8b3&with_genres=35"
+        } else if (genre.toLowerCase() === "horror") {
+            url = "https://api.themoviedb.org/3/discover/movie?api_key=f4ae3b639c7d6bc44c596640018ce8b3&with_genres=27"
+        }
         return $http({
             method: "GET",
-            url: "https://api.themoviedb.org/3/genre/movie/list?api_key=f4ae3b639c7d6bc44c596640018ce8b3&language=en-US"
+            url: url
         }).then((response) => {
             genreObject = response;
-            console.log(genreObject.data.genres );
-            for (let i = 0; i < genreObject.data.genres; i++) {
-                if (genre.toLowerCase() === genreObject.data.genres[i].name.toLowerCase()) {
-                    console.log(genreObject);
-                }    
-            }
             console.log(genreObject);
         })
     }
@@ -85,15 +91,13 @@ function MovieService($http) {
     const getMovieTitles = (title) => {
         return $http({
             method: "GET",
-            url: `https://api.themoviedb.org/3/discover/movie?api_key=f4ae3b639c7d6bc44c596640018ce8b3&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&query=${title}`
+            url: `https://api.themoviedb.org/3/search/movie?api_key=f4ae3b639c7d6bc44c596640018ce8b3&query=${title}`
         }).then((response) => {
             movieTitles = response;
-            return movieTitles;
         })
     }
 
     const getTitleResults = () => {
-        console.log(movieTitles);
         return movieTitles;
     }
 

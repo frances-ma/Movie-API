@@ -19,9 +19,9 @@ const searchGenre = {
         vm.theMovie = {};
         let modal = document.querySelector(".movie_modal");
         let closeBtn = document.querySelector(".close");
-        closeBtn.addEventListener("click", function() {
-            modal.style.display = "none";
-        })
+        // closeBtn.addEventListener("click", function() {
+        //     modal.style.display = "none";
+        // })
         vm.searchGenre = MovieService.getTitleResults();
 
         vm.addMovie = (movie) => {
