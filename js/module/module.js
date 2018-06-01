@@ -27,5 +27,11 @@ angular.module("Hotflix", ["ngRoute"])
                 <search-title></search-title>
                 `
             })
+            .when("/search-genre", {
+                template: `
+                <header-component></header-component>
+                <search-genre>/search-genre>
+                `
+            })
             .otherwise({ redirectTo: "/movie-list"});
 })

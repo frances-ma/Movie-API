@@ -10,6 +10,7 @@ function MovieService($http) {
     let movieRatings = {};
     let movieTitles = {};
     let modalInfo =  {};
+    let actualGenre = "";
 
     // 20 most popular movies 
     const getMovieList = () => {
@@ -23,26 +24,6 @@ function MovieService($http) {
     }
     
     // taking in search (string) and see if genres match to show movies 
-    const getGenreList = (genre) => {
-        return $http({
-            method: "GET",
-            url: `https://api.themoviedb.org/3/discover/movie?api_key=f4ae3b639c7d6bc44c596640018ce8b3&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=${genre}`
-        }).then((response) => {
-            newGenre = genre; 
-            for (let i = 0; i < genreList.length; i++) {
-                if (newGenre === genreList.name) {
-                console.log("cool"); 
-                }
-            }
-            // genreList = MovieService.getGenreList
-            // for (let i = 0; i < genreList.length; i++) {
-            //     console.log(genreList[i]);
-            // }
-
-            // console.log(response);
-            // return response;
-        }) 
-    }
 
     // returning list of movies 
     const returnMovieList = () => {
@@ -61,10 +42,24 @@ function MovieService($http) {
     }
 
     // give genres back 
-    const genreList = () => {
+    const genreList = (genre) => {
         return $http({
             method: "GET",
             url: "https://api.themoviedb.org/3/genre/movie/list?api_key=f4ae3b639c7d6bc44c596640018ce8b3&language=en-US"
+        }).then((response) => {
+            genreObject = response;
+            actualGenre = genre;
+            console.log(genreObject);
+            for (let i = 0; i <= genreObject.data.genres; i++) {
+                console.log(genreObject);
+            }
+        })
+    }
+
+    const genreList2 = () => {
+        return $http({
+            method: "GET",
+            url: "https://api.themoviedb.org/3/discover/movie?api_key=f4ae3b639c7d6bc44c596640018ce8b3&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1"
         }).then((response) => {
             genreObject = response;
             return genreObject;
@@ -78,6 +73,7 @@ function MovieService($http) {
             url: "https://api.themoviedb.org/3/discover/movie?api_key=f4ae3b639c7d6bc44c596640018ce8b3&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&vote_average.gte=" + rating
         }).then((response) => {
             movieRatings = response;
+            return movieRatings;
         })
     }
     
@@ -109,9 +105,9 @@ function MovieService($http) {
 
 
     return {
-        genreList,
         getMovieList,
-        getGenreList,
+        genreList,
+        genreList2,
         returnMovieList,
         sendWatchlist,
         getWatchlist,
@@ -130,13 +126,14 @@ function MovieService($http) {
 //         method: "GET",
 //         url: `https://api.themoviedb.org/3/genre/movie/list?api_key=f4ae3b639c7d6bc44c596640018ce8b3&language=en-US`
 //     }).then((response) => {
-// const searchByGenre2 = (genre) => {
-//     return $http({
-//         method: "GET",
-//         url: `https://api.themoviedb.org/3/discover/movie?api_key=f4ae3b639c7d6bc44c596640018ce8b3&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1`
-//     }).then((response) => {
-//         for (let i = 0; i < genre.length; i++) {
-//         }
+//          const searchByGenre2 = (genre) => {
+//              return $http({
+//                  method: "GET",
+//                  url: `https://api.themoviedb.org/3/discover/movie?api_key=f4ae3b639c7d6bc44c596640018ce8b3&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1`
+//              }).then((response) => {
+//                  for (let i = 0; i < genre.length; i++) {
+
+//                  }
 // })
 
 

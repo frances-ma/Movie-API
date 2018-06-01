@@ -36,8 +36,9 @@ const headerComponent = {
         const vm = this;
 
         vm.searchGenre = (genre) => {
-          MovieService.genreList(genre); 
-          console.log(genre); 
+            MovieService.genreList(genre).then(() => {
+                $location.path("/search-genre");
+            });
         }
 
        vm.searchRating = (rating) => {
