@@ -15,7 +15,7 @@ const movieList = {
         <img class="theMovie_img" ng-src="https://image.tmdb.org/t/p/w500/{{$ctrl.theMovie.backdrop_path}}">
         <h3 class="theCard_header_three">Release Date: {{$ctrl.theMovie.release_date}}</h3>
         <p class="card_text">{{$ctrl.theMovie.overview}}</p>
-        <button class="add_button" ng-click="$ctrl.addMovie(movie);"> Add Movie </button>
+        <button class="add_button" ng-click="$ctrl.modalMovie($ctrl.theMovie);"> Add Movie </button>
         <i class="material-icons close">clear</i>
     </div>
     `,
@@ -24,7 +24,10 @@ const movieList = {
         vm.watchList = [];
         vm.theMovie = {};
         let modal = document.querySelector(".movie_modal");
-
+        let closeBtn = document.querySelector(".close");
+        closeBtn.addEventListener("click", function() {
+            modal.style.display = "none";
+        })
         MovieService.getMovieList().then((response) => {
             console.log(response);
             vm.info = response; 
@@ -36,9 +39,14 @@ const movieList = {
             modal.style.display = "none";
         }
 
-        vm.editMovie = (movie) => {
+        vm.modalMovie = (movie) => {
             vm.watchList.push(movie);
             MovieService.sendWatchlist(vm.watchList);
+            modal.style.display = "none";
+        }
+
+        vm.editMovie = (movie) => {
+            
 
             vm.theMovie = movie;
             modal.style.display = "flex";

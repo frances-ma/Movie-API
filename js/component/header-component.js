@@ -34,7 +34,8 @@ const headerComponent = {
     `,
     controller: ["$location", "MovieService", function($location, MovieService) {
         const vm = this;
-
+        vm.updateWatchlist = MovieService.getWatchlist();
+        console.log(vm.updateWatchlist);
         vm.searchGenre = (genre) => {
             MovieService.genreList(genre).then((response) => {
                 MovieService.genreList2(genre).then((response) => {
@@ -54,6 +55,10 @@ const headerComponent = {
           MovieService.getMovieTitles(title).then(() => {
               $location.path("/search-title");
           })
+       }
+
+       vm.sendList = (list) => {
+            MovieService.sendWatchlist(vm.updateWatchlist);
        }
     }]
      
