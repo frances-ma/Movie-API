@@ -17,9 +17,11 @@ body {
 }
 
 .header {
-    background-color: #94a395;  
+    /* background-color: #94a395;   */
+    background-image: url("img/photo-1440404653325-ab127d49abc1.jpg");
     width: 100vw;
 }
+
 
 .logo {
     width: 300px; 
@@ -73,10 +75,12 @@ button:hover {
     display: flex;
     flex-direction: column;
     margin: 1rem;
+    border: 1px solid grey;
+    padding: 1rem;
 }
 
 .movie_img {
-    width: 300px;
+    width: 100%;
 }
 
 .search {
