@@ -12,10 +12,6 @@ const headerComponent = {
             <button onclick="myFunction()" class="dropbtn">Search</button>
                 <div id="myDropdown" class="dropdown-content">
                     <div class="movie_input">
-                        <input ng-model="$ctrl.movieGenre" type="text" placeholder="Genre">
-                        <button ng-click="$ctrl.searchGenre($ctrl.movieGenre);" class="search_button" type="button">Genre</button>
-                    </div>
-                    <div class="movie_input">
                         <input ng-model="$ctrl.movieTitle" type="text" placeholder="Title">
                         <button ng-click="$ctrl.searchTitles($ctrl.movieTitle);" class="search_button" type="button">Title</button>
                     </div>
@@ -67,4 +63,9 @@ angular.module("Hotflix").component("headerComponent", headerComponent);
 
 /* <button class="nav_button" type="button">Search</button> 
    <input class="search"type="text" placeholder="Search By..." ng-model="$ctrl.info.data.results.title">
+
+                    <div class="movie_input">
+                        <input ng-model="$ctrl.movieGenre" type="text" placeholder="Genre">
+                        <button ng-click="$ctrl.searchGenre($ctrl.movieGenre);" class="search_button" type="button">Genre</button>
+                    </div>
 */
